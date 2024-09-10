@@ -111,7 +111,7 @@ public class Spawner : MonoBehaviour, INetworkRunnerCallbacks
         {
             var spawnedPlayer = runner
                 .Spawn(_playerPrefab, spawnPoints[_players.Count].position, Quaternion.identity, player);
-
+            //spawnedPlayer.GetComponent<Player>().Init();
             _players.Add(player, spawnedPlayer);
         }
     }
@@ -131,6 +131,9 @@ public class Spawner : MonoBehaviour, INetworkRunnerCallbacks
     {
         var inputData = new NetworkInputData();
         inputData.dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+        inputData.jumpInput = Input.GetKeyDown(KeyCode.Space);
+        inputData.shootInput = Input.GetMouseButtonDown(0);
 
         input.Set(inputData);
     }
