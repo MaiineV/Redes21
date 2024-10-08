@@ -1,0 +1,6 @@
+Matar enemigos y contador para ganar
+Algun tipo de ataque melee y rango
+Timer
+Pantalla de derrota y victoria
+Menu desconeccion
+4 jugadores y 2 colores x equipo
