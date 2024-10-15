@@ -82,14 +82,19 @@ public class SharedPlayed : NetworkBehaviour
 
     private IEnumerator WaitInit()
     {
-        yield return new WaitForSeconds(2);
-        if (Runner.ActivePlayers.Count() % 2 == 0)
+        yield return new WaitForSeconds(1);
+
+        switch (Runner.LocalPlayer.PlayerId)
         {
-            _teamColor = Color.red;
-        }
-        else
-        {
-            _teamColor = Color.blue;
+            case 1:
+                _teamColor = Color.red;
+                break;
+            case 2:
+                _teamColor = Color.blue;
+                break;
+            default:
+                _teamColor = Color.yellow;
+                break;
         }
     }
 }
